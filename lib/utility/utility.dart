@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:kawaii_chat/shared/theme/theme_cubit.dart';
 
 class Utility{
   static MediaQueryData getMediaQueryData(BuildContext context) {
@@ -24,5 +25,13 @@ class Utility{
 
   static bool isLargeScreen(BuildContext context) {
     return getScreenWidth(context) >= 1000;
+  }
+
+  static bool isLightTheme(ThemeType themeType) {
+    if (themeType == ThemeType.light) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

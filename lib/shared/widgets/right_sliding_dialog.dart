@@ -1,8 +1,8 @@
-import 'package:codeintel_chatbot_cms/shared/widgets/button/cc_icon_button.dart';
-import 'package:codeintel_chatbot_cms/utility/app_colors.dart';
-import 'package:codeintel_chatbot_cms/utility/app_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:kawaii_chat/shared/widgets/button/cc_icon_button.dart';
+import 'package:kawaii_chat/utility/app_colors.dart';
+import 'package:kawaii_chat/utility/app_constants.dart';
 
 class RightSlidingDialog extends StatefulWidget {
   final Widget child;

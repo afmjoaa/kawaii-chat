@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "647707730459",
+    "project_id": "kawaii-chat-88920",
+    "storage_bucket": "kawaii-chat-88920.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:647707730459:android:1112a8efe83f7b3e990ebe",
+        "android_client_info": {
+          "package_name": "com.example.kawaii_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "647707730459-mh4rui50fcgh33auud8r64gp81spmtkc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcuKsUxIHHLIgs_u2EI9RxOf-HQzyS9xw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "647707730459-mh4rui50fcgh33auud8r64gp81spmtkc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "647707730459-ecfdn8td1n2akpnlid46232hr8laq93q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.kawaiiChat"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
