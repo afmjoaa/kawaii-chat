@@ -3,7 +3,7 @@ import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kawaii_chat/core/config.dart';
-import 'package:kawaii_chat/screen/chat/chat_screen.dart';
+import 'package:kawaii_chat/screen/chat/presentation/chats_screen.dart';
 import 'package:kawaii_chat/screen/landing/landing_screen.dart';
 import 'package:kawaii_chat/shared/widgets/right_sliding_dialog.dart';
 import 'package:kawaii_chat/utility/app_colors.dart';
@@ -70,8 +70,8 @@ class Authentication {
         final user = FirebaseAuth.instance.currentUser;
         String currentScreenName = ModalRoute.of(context)?.settings.name ?? "";
         if (user != null) {
-          if (currentScreenName != ChatScreen.path) {
-            GoRouter.of(context).pushReplacementNamed(ChatScreen.path);
+          if (currentScreenName != ChatsScreen.path) {
+            GoRouter.of(context).pushReplacementNamed(ChatsScreen.path);
           }
         } else {
           if (currentScreenName != LandingScreen.path) {

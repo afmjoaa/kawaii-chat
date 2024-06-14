@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:kawaii_chat/core/kawaii_chat_provider.dart';
 import 'package:kawaii_chat/shared/theme/theme_cubit.dart';
 
 class Utility{
@@ -33,5 +34,17 @@ class Utility{
     } else {
       return false;
     }
+  }
+
+  static void startLoadingAnimation() {
+    KawaiiChatProvider.loadingCubit.startLoading();
+  }
+
+  static void completeLoadingAnimation() {
+    KawaiiChatProvider.loadingCubit.resetLoading();
+  }
+
+  static void showLoadingFailedError(String errorMessage) {
+    KawaiiChatProvider.loadingCubit.loadingFailed(errorMessage);
   }
 }

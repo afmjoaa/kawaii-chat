@@ -4,6 +4,7 @@ import 'package:kawaii_chat/shared/widgets/button/cc_filled_button.dart';
 import 'package:kawaii_chat/shared/widgets/button/cc_icon_button.dart';
 import 'package:kawaii_chat/shared/widgets/button/cc_outline_button.dart';
 import 'package:kawaii_chat/shared/widgets/common_appbar.dart';
+import 'package:kawaii_chat/shared/widgets/text/cc_text_widget.dart';
 import 'package:kawaii_chat/utility/app_colors.dart';
 import 'package:kawaii_chat/utility/app_constants.dart';
 import 'package:kawaii_chat/utility/utility.dart';
@@ -51,7 +52,6 @@ class LandingScreen extends StatelessWidget {
             onPressed: () {
               Authentication.openAuthDialog(context: context);
             },
-            iconPath: AppConstants.createAccount,
             label: 'Create Account',
           ),
           const SizedBox(
@@ -66,7 +66,6 @@ class LandingScreen extends StatelessWidget {
   Widget _getButtonBasedOnWidth({
     required BuildContext context,
     required VoidCallback onPressed,
-    required String iconPath,
     required String label,
     bool isFilledButton = true,
   }) {
@@ -74,18 +73,18 @@ class LandingScreen extends StatelessWidget {
       return isFilledButton
           ? CcFilledButton(
               onPressed: onPressed,
-              iconPath: iconPath,
+              iconPath: AppConstants.createAccount,
               label: label,
             )
           : CcOutlineButton(
               onPressed: onPressed,
-              iconPath: iconPath,
+              iconPath: AppConstants.createAccountBlack,
               label: label,
             );
     } else {
       return CcIconButton(
         onPressed: onPressed,
-        iconPath: iconPath,
+        iconPath: AppConstants.createAccountBlack,
         tooltip: label,
       );
     }
@@ -104,22 +103,18 @@ class LandingScreen extends StatelessWidget {
             fit: BoxFit.contain,
           ),
           const SizedBox(height: 20),
-          const Text(
-            'Welcome to Kawaii Chat!',
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              color: Colors.pink,
-            ),
+          const CcTextWidget(
+            text: 'Welcome to Kawaii Chat!',
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            color: AppColors.primary,
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 10),
-          Text(
-            'Connect with your friends in the cutest way possible.',
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.grey[700],
-            ),
+          const CcTextWidget(
+            text: 'Connect with your friends in the cutest way possible.',
+            fontSize: 16,
+            color: AppColors.textPrimary,
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 10),

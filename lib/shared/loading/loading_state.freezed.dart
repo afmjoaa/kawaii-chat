@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'loading_state.dart';
 
@@ -12,7 +12,7 @@ part of 'loading_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$LoadingState {
@@ -40,8 +40,8 @@ mixin _$LoadingState {
 
 /// @nodoc
 
-class _$InitialLoadingState implements InitialLoadingState {
-  const _$InitialLoadingState();
+class _$InitialLoadingStateImpl implements InitialLoadingState {
+  const _$InitialLoadingStateImpl();
 
   @override
   String toString() {
@@ -78,13 +78,13 @@ class _$InitialLoadingState implements InitialLoadingState {
 }
 
 abstract class InitialLoadingState implements LoadingState {
-  const factory InitialLoadingState() = _$InitialLoadingState;
+  const factory InitialLoadingState() = _$InitialLoadingStateImpl;
 }
 
 /// @nodoc
 
-class _$LoadingStartedState implements LoadingStartedState {
-  const _$LoadingStartedState();
+class _$LoadingStartedStateImpl implements LoadingStartedState {
+  const _$LoadingStartedStateImpl();
 
   @override
   String toString() {
@@ -121,13 +121,13 @@ class _$LoadingStartedState implements LoadingStartedState {
 }
 
 abstract class LoadingStartedState implements LoadingState {
-  const factory LoadingStartedState() = _$LoadingStartedState;
+  const factory LoadingStartedState() = _$LoadingStartedStateImpl;
 }
 
 /// @nodoc
 
-class _$LoadingFailedState implements LoadingFailedState {
-  const _$LoadingFailedState(this.errorMessage);
+class _$LoadingFailedStateImpl implements LoadingFailedState {
+  const _$LoadingFailedStateImpl(this.errorMessage);
 
   @override
   final String errorMessage;
@@ -168,15 +168,15 @@ class _$LoadingFailedState implements LoadingFailedState {
 
 abstract class LoadingFailedState implements LoadingState {
   const factory LoadingFailedState(final String errorMessage) =
-      _$LoadingFailedState;
+      _$LoadingFailedStateImpl;
 
   String get errorMessage;
 }
 
 /// @nodoc
 
-class _$LoadingSuccessState implements LoadingSuccessState {
-  const _$LoadingSuccessState();
+class _$LoadingSuccessStateImpl implements LoadingSuccessState {
+  const _$LoadingSuccessStateImpl();
 
   @override
   String toString() {
@@ -213,13 +213,13 @@ class _$LoadingSuccessState implements LoadingSuccessState {
 }
 
 abstract class LoadingSuccessState implements LoadingState {
-  const factory LoadingSuccessState() = _$LoadingSuccessState;
+  const factory LoadingSuccessState() = _$LoadingSuccessStateImpl;
 }
 
 /// @nodoc
 
-class _$LoadingCompletedState implements LoadingCompletedState {
-  const _$LoadingCompletedState();
+class _$LoadingCompletedStateImpl implements LoadingCompletedState {
+  const _$LoadingCompletedStateImpl();
 
   @override
   String toString() {
@@ -256,5 +256,5 @@ class _$LoadingCompletedState implements LoadingCompletedState {
 }
 
 abstract class LoadingCompletedState implements LoadingState {
-  const factory LoadingCompletedState() = _$LoadingCompletedState;
+  const factory LoadingCompletedState() = _$LoadingCompletedStateImpl;
 }

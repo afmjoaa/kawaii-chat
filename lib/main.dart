@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:kawaii_chat/core/firebase_options.dart';
 import 'package:kawaii_chat/core/kawaii_chat_app.dart';
 import 'package:kawaii_chat/core/kawaii_chat_application.dart';
@@ -27,7 +28,9 @@ void startAppComponent(var application) {
   runApp(
     BlocProvider(
       create: (context) => ThemeCubit(),
-      child: KawaiiChatApp(application),
+      child: ProviderScope(
+        child: KawaiiChatApp(application),
+      ),
     ),
   );
 }
