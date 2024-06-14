@@ -7,14 +7,20 @@ class CommonAppbar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? titleWidget;
   final bool centerTitle;
   final double leadingWidth;
+  final List<Widget>? actions;
+  final double height;
+  final Color backgroundColor;
 
   const CommonAppbar({
     super.key,
     this.title,
     this.titleWidget,
     this.leading,
-    this.centerTitle = true,
+    this.actions,
+    this.height = 64.0,
+    this.centerTitle = false,
     this.leadingWidth = 56.0,
+    this.backgroundColor = AppColors.color_white,
   });
 
   @override
@@ -26,24 +32,26 @@ class CommonAppbar extends StatelessWidget implements PreferredSizeWidget {
       title: _getTitleWidget(),
       centerTitle: centerTitle,
       elevation: 3,
-      toolbarHeight: 54,
-      backgroundColor: AppColors.secondary,
+      toolbarHeight: 64,
+      backgroundColor: backgroundColor,
+      surfaceTintColor: backgroundColor,
       shadowColor: Colors.black.withOpacity(0.5),
       shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
+        borderRadius: BorderRadius.vertical(bottom: Radius.circular(30)),
       ),
+      actions: actions,
     );
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(64);
+  Size get preferredSize => Size.fromHeight(height);
 
   Widget? _getTitleWidget() {
     if (title != null) {
       return Text(title!, style:
       const TextStyle(
         fontSize: 18,
-        color: AppColors.textPrimary,
+        color: AppColors.color_black,
         fontWeight: FontWeight.w500,
       ),);
     } else {
@@ -56,10 +64,9 @@ class CommonAppbar extends StatelessWidget implements PreferredSizeWidget {
       return Builder(
         builder: (BuildContext context) => IconButton(
           padding: const EdgeInsets.all(22),
-          icon: Image.asset(
-            'assets/icons/confirm.png',
-            width: 20.0,
-            height: 20.0,
+          icon: const Icon(
+            Icons.arrow_back_ios_new_rounded,
+            size: 24,
           ),
           onPressed: () => Navigator.pop(context),
           tooltip: 'back',
