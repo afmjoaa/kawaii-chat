@@ -1,4 +1,7 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:kawaii_chat/notification/firebase_messaging_service.dart';
+import 'package:kawaii_chat/notification/send_notification_service.dart';
 import 'package:kawaii_chat/screen/auth/authentication.dart';
 import 'package:kawaii_chat/shared/widgets/button/cc_filled_button.dart';
 import 'package:kawaii_chat/shared/widgets/button/cc_icon_button.dart';
@@ -96,7 +99,7 @@ class LandingScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Image.network(
+          Image.asset(
             AppConstants.kawaiiBg,
             height: 160,
             width: 160,

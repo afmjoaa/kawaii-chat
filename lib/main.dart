@@ -1,5 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -7,6 +9,7 @@ import 'package:kawaii_chat/core/firebase_options.dart';
 import 'package:kawaii_chat/core/kawaii_chat_app.dart';
 import 'package:kawaii_chat/core/kawaii_chat_application.dart';
 import 'package:kawaii_chat/core/service_locator.dart';
+import 'package:kawaii_chat/notification/firebase_messaging_service.dart';
 
 import 'core/config.dart';
 import 'shared/theme/theme_cubit.dart';
@@ -21,6 +24,11 @@ Future<void> main() async {
   application.onCreate();
   await setUpServiceLocators();
   await sl.allReady();
+
+  if(!kIsWeb) {
+    await FirebaseMessagingService.initialize();
+    debugPrint("${await FirebaseMessagingService.getFCMToken()}");
+  }
   startAppComponent(application);
 }
 
@@ -34,3 +42,5 @@ void startAppComponent(var application) {
     ),
   );
 }
+
+

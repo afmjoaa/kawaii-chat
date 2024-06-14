@@ -6,7 +6,7 @@ String get googleClientId =>
     '102511634049-daorkfmvqfi4evhfkeauuk4qn7npkfna.apps.googleusercontent.com';
 
 firebase_auth.ActionCodeSettings get actionCodeSettings => firebase_auth.ActionCodeSettings(
-    url: 'https://google.com',
+    url: 'https://kawaii-chat-88920.web.app/',
     handleCodeInApp: true
 );
 

@@ -1,6 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:kawaii_chat/core/service_locator.dart';
+import 'package:kawaii_chat/notification/firebase_messaging_service.dart';
+import 'package:kawaii_chat/notification/send_notification_service.dart';
 import 'package:kawaii_chat/screen/chat/domain/response_entitiy.dart';
 import 'package:kawaii_chat/screen/chat/domain/response_use_case.dart';
 import 'package:kawaii_chat/screen/chat/presentation/provider/chat_model.dart';
@@ -71,6 +74,15 @@ class ChatNotifier extends StateNotifier<ChatModel> {
       responseEntity: state.responseEntity,
     );
 
+    await sendNotification();
+  }
+
+  Future<void> sendNotification() async {
+    var token = await FirebaseMessagingService.getFCMToken();
+    print("Foofoo notification send to the current user");
+    if (token != null) {
+      SendNotificationService.sendNotificationToSelectedClient(token);
+    }
   }
 
   void updateMessages(List<types.Message> messages) {

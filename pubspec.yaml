@@ -36,8 +36,12 @@ dependencies:
   mime: ^1.0.5
   uuid: ^4.3.2
   firebase_storage: ^11.6.9
-#  riverpod: ^2.5.1
   flutter_riverpod: ^2.5.1
+  firebase_messaging:
+  http:
+  googleapis:
+  googleapis_auth:
+  flutter_local_notifications: 16.1.0
 
 dev_dependencies:
   flutter_test:
@@ -80,6 +84,7 @@ flutter:
     - asset/
     - asset/icon/
     - asset/image/
+    - asset/image/kawaii_bg.png
     - asset/loading.flr
 
   fonts:

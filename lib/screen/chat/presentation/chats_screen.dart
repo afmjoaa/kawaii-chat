@@ -3,6 +3,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:kawaii_chat/notification/firebase_messaging_service.dart';
+import 'package:kawaii_chat/notification/send_notification_service.dart';
 import 'package:kawaii_chat/screen/chat/presentation/attachment_bottom_sheet.dart';
 import 'package:kawaii_chat/screen/chat/presentation/chats_appbar.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
@@ -79,6 +81,7 @@ class _ChatsScreenState extends ConsumerState<ChatsScreen> {
       ref.read(chatProvider.notifier).addMessage(message);
     }
   }
+
 
   void _handleImageSelection(types.User user) async {
     final result = await ImagePicker().pickImage(
