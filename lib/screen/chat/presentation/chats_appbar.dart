@@ -1,8 +1,15 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:kawaii_chat/screen/landing/landing_screen.dart';
+import 'package:kawaii_chat/shared/widgets/button/cc_filled_button.dart';
+import 'package:kawaii_chat/shared/widgets/button/cc_icon_button.dart';
+import 'package:kawaii_chat/shared/widgets/button/cc_outline_button.dart';
 import 'package:kawaii_chat/shared/widgets/common_appbar.dart';
 import 'package:kawaii_chat/shared/widgets/text/cc_text_widget.dart';
 import 'package:kawaii_chat/utility/app_colors.dart';
 import 'package:kawaii_chat/utility/app_constants.dart';
+import 'package:kawaii_chat/utility/utility.dart';
 
 class ChatsAppbar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -60,8 +67,47 @@ class ChatsAppbar extends StatelessWidget implements PreferredSizeWidget {
           ),
         ],
       ),
+      actions: [
+        _getButtonBasedOnWidth(
+          context: context,
+          onPressed: () {
+            FirebaseAuth.instance.signOut();
+            GoRouter.of(context).pushReplacementNamed(LandingScreen.path);
+          },
+          label: 'Log out',
+        ),
+        const SizedBox(
+          width: 20,
+        )
+      ],
       leadingWidth: 54,
     );
+  }
+
+  Widget _getButtonBasedOnWidth({
+    required BuildContext context,
+    required VoidCallback onPressed,
+    required String label,
+    bool isFilledButton = true,
+  }) {
+    if (Utility.getScreenWidth(context) > 800) {
+      return isFilledButton
+          ? CcFilledButton(
+        onPressed: onPressed,
+        iconPath: AppConstants.logoutWhite,
+        label: label,
+      ) : CcOutlineButton(
+        onPressed: onPressed,
+        iconPath: AppConstants.logoutBlack,
+        label: label,
+      );
+    } else {
+      return CcIconButton(
+        onPressed: onPressed,
+        iconPath: AppConstants.logoutBlack,
+        tooltip: label,
+      );
+    }
   }
 
   @override

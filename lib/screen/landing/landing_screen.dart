@@ -59,7 +59,7 @@ class LandingScreen extends StatelessWidget {
           )
         ],
       ),
-      body: _getBodyWidget(),
+      body: _getBodyWidget(context),
     );
   }
 
@@ -90,7 +90,7 @@ class LandingScreen extends StatelessWidget {
     }
   }
 
-  Widget _getBodyWidget() {
+  Widget _getBodyWidget(context) {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -120,7 +120,9 @@ class LandingScreen extends StatelessWidget {
           const SizedBox(height: 10),
           SizedBox(
             width: 160,
-            child: CcFilledButton(onPressed: () {  },
+            child: CcFilledButton(onPressed: () {
+              Authentication.openAuthDialog(context: context);
+            },
               iconPath: AppConstants.chat,
               label: 'Start Chatting',
             ),
